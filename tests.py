@@ -84,3 +84,28 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Книга 1')
         collector.add_book_in_favorites('Книга 2')
         assert sorted(collector.get_list_of_favorites_books()) == ['Книга 1', 'Книга 2']
+
+    def test_get_book_genre_returns_correct_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга 1')
+        collector.books_genre['Книга 1'] = 'Фантастика'
+        assert collector.get_book_genre('Книга 1') == 'Фантастика'
+
+    def test_get_book_genre_returns_none_for_unknown_book(self):
+        collector = BooksCollector()
+        assert collector.get_book_genre('Несуществующая книга') is None
+
+    def test_get_books_genre_returns_correct_dictionary(self):
+        collector = BooksCollector()
+        collector.books_genre = {
+            'Книга 1': 'Фантастика',
+            'Книга 2': 'Комедии'
+        }
+        assert collector.get_books_genre() == {
+            'Книга 1': 'Фантастика',
+            'Книга 2': 'Комедии'
+        }
+
+    def test_get_books_genre_returns_empty_dict_initially(self):
+        collector = BooksCollector()
+        assert collector.get_books_genre() == {}
