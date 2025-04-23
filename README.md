@@ -33,3 +33,15 @@ test_delete_book_from_favorites_removes_book
 test_get_list_of_favorites_books_returns_correct_list
 
 Проверка, что метод get_list_of_favorites_books возвращает правильный список избранных книг.
+
+test_get_book_genre_returns_correct_genre
+Проверяет, что метод get_book_genre возвращает корректный жанр для книги, если она присутствует в словаре books_genre.
+
+test_get_book_genre_returns_none_for_unknown_book
+Проверяет, что метод get_book_genre возвращает None, если книга отсутствует в словаре books_genre.
+
+test_get_books_genre_returns_correct_dictionary
+Проверяет, что метод get_books_genre возвращает точное содержимое словаря books_genre.
+
+test_get_books_genre_returns_empty_dict_initially
+Проверяет, что при создании нового экземпляра класса словарь books_genre изначально пуст.
